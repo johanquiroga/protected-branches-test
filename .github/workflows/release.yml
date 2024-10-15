@@ -27,20 +27,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ^18.17
-          cache: "npm"
-          cache-dependency-path: "**/package-lock.json"
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@onfleet"
+          node-version: "lts/*"
 
       - name: Install dependencies
         run: npm i
-
-      - name: Build
-        run: npm run build
-
-      - name: Test
-        run: npm run test
 
       - name: Install semantic-release extra plugins
         run: npm install --save-dev @semantic-release/git
@@ -48,6 +38,4 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release

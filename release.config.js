@@ -1,9 +1,14 @@
 module.exports = {
-  branches: ["main", { name: "beta", prerelease: true }],
+  branches: ["main"],
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    "@semantic-release/npm",
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false
+      }
+    ],
     [
       "@semantic-release/github",
       {
@@ -14,6 +19,9 @@ module.exports = {
     [
       "@semantic-release/git",
       {
+        "assets": [
+          "package.json"
+        ],
         message:
           // eslint-disable-next-line no-template-curly-in-string
           "chore(release): set `package.json` to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
