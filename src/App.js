@@ -15,8 +15,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React (test without bypass)
+          Learn React
         </a>
+        <span>test without bypass rules</span>
       </header>
     </div>
   );
