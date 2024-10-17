@@ -17,7 +17,7 @@ function App() {
         >
           Learn React
         </a>
-        <span>test without bypass rules</span>
+        <span>test without semantic-release/git</span>
       </header>
     </div>
   );
