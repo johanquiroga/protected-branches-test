@@ -21,8 +21,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -31,9 +29,6 @@ jobs:
 
       - name: Install dependencies
         run: npm i
-
-      - name: Install semantic-release extra plugins
-        run: npm install --save-dev @semantic-release/git
 
       - name: Release
         env:
